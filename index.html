@@ -9,42 +9,12 @@
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <style>
   html, body { background: #000; margin: 0; padding: 0; height: 100%; }
-  body { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; min-height: 100dvh; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-  button { padding: 16px 34px; border-radius: 999px; border: 2px solid #14B8A6; background: #111318; color: #fff; font-size: 18px; font-weight: 800; cursor: pointer; }
-  button:active { background: #14B8A6; color: #000; }
-  p { color: #6B7280; font-size: 13px; margin-top: 14px; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  h1 { color: #fff; font-size: 28px; letter-spacing: 1px; text-align: center; padding: calc(20px + env(safe-area-inset-top)) 16px 0; margin: 0; font-weight: 800; }
+  h1 .gold { color: #FACC15; }
 </style>
 </head>
 <body>
-  <button id="refreshBtn" type="button">&#8635; Refresh</button>
-  <p>or shake your phone</p>
-<script>
-(function () {
-  document.getElementById('refreshBtn').onclick = function () { location.reload(); };
-
-  // Shake to refresh
-  var lastShake = 0;
-  function handleMotion(e) {
-    var a = e.accelerationIncludingGravity;
-    if (!a) return;
-    var mag = Math.abs(a.x || 0) + Math.abs(a.y || 0) + Math.abs(a.z || 0);
-    if (mag > 45) {
-      var now = Date.now();
-      if (now - lastShake > 1500) { lastShake = now; location.reload(); }
-    }
-  }
-  if (typeof DeviceMotionEvent !== 'undefined' && typeof DeviceMotionEvent.requestPermission === 'function') {
-    // iOS needs a tap to allow motion access; the Refresh button tap covers it.
-    document.addEventListener('click', function once() {
-      DeviceMotionEvent.requestPermission().then(function (s) {
-        if (s === 'granted') window.addEventListener('devicemotion', handleMotion);
-      }).catch(function () {});
-      document.removeEventListener('click', once);
-    });
-  } else if ('DeviceMotionEvent' in window) {
-    window.addEventListener('devicemotion', handleMotion);
-  }
-})();
-</script>
+  <h1>POINT <span class="gold">COLLECTOR</span></h1>
 </body>
 </html>
