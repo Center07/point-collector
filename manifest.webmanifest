@@ -1,0 +1,1 @@
+{"background_color":"#000000","description":"Track your points, see the days left to your goal, and find who has the most.","display":"standalone","icons":[{"purpose":"any","sizes":"any","src":"icon.svg","type":"image/svg+xml"}],"name":"Point Collector","short_name":"Points","start_url":"./index.html","theme_color":"#000000"}
